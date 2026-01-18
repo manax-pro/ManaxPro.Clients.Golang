@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+out/
+bin/
+
+# Go sources are formatted with gofmt/goimports
+*.go
+
+coverage.*
+*.coverprofile

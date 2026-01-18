@@ -1,0 +1,45 @@
+run:
+  timeout: 3m
+  tests: true
+  modules-download-mode: readonly
+
+linters-settings:
+  govet:
+    enable-all: true
+    disable:
+      - fieldalignment
+
+  staticcheck:
+    checks: ["all"]
+
+  revive:
+    rules:
+      - name: exported
+        severity: warning
+        arguments:
+          - "comment"
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - revive
+    - gofmt
+    - goimports
+    - errcheck
+    - gosimple
+    - ineffassign
+    - unused
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gofmt
+        - goimports
+
+service:
+  golangci-lint-version: 1.61.0
